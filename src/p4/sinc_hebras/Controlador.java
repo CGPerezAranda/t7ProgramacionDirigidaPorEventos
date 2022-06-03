@@ -10,6 +10,7 @@ public class Controlador implements ActionListener, PropertyChangeListener  {
 	Panel panel;
 	Worker w;
 	Worker_sync ws;
+	private int pausedValue = 10;
 	public Controlador(Panel panel)
 	{
 		this.panel = panel;
@@ -35,6 +36,24 @@ public class Controlador implements ActionListener, PropertyChangeListener  {
 				ws.cancel(true);
 				panel.boton.setText("Cuenta atras!");
 				panel.boton.setActionCommand(panel.START);
+				w.cancel(true);
+				ws.cancel(true);
+		}
+		else if(e.getActionCommand().equals("PAUSA")){
+			pausedValue = panel.getLastNumber();
+			w.cancel(true);
+			ws.cancel(true);
+			
+			panel.boton.setText("Resume");
+			panel.boton.setActionCommand("RESUME");
+			
+		}else if(e.getActionCommand().equals("RESUME")){
+			w = new Worker(pausedValue, panel);
+			ws = new Worker_sync(pausedValue, panel, w);
+			w.execute();
+			ws.execute();
+			panel.boton.setText("Cuenta atras!");
+			panel.boton.setActionCommand(panel.START);
 		}
 	}
 	public void propertyChange(PropertyChangeEvent evt) {

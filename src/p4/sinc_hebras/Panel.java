@@ -16,6 +16,7 @@ public class Panel extends JPanel {
 
 	private JLabel etiqueta1;
     protected JButton boton;
+    protected JButton pausa;
     protected JTextArea area, area2;
     protected JScrollPane scroll, scroll2;
     protected JTextField tiempoField;
@@ -42,7 +43,8 @@ public class Panel extends JPanel {
          etiqueta1.setText("Introduzca el valor de inicio");
          boton.setText("Cuenta atrás!");         
 
-         
+         pausa=new JButton();
+         pausa.setText("PAUSA");
          this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));         
          JPanel sup= new JPanel();
          sup.add(etiqueta1);
@@ -50,6 +52,7 @@ public class Panel extends JPanel {
          this.add(sup);
                   
          this.add(boton);
+         this.add(pausa);
 
          this.add(scroll); 
          this.add(scroll2);
@@ -63,9 +66,16 @@ public class Panel extends JPanel {
     {
     	boton.addActionListener(ctr);
     	boton.setActionCommand(START);
+    	pausa.addActionListener(ctr);
+    	pausa.setActionCommand("PAUSA");
 
     }
 
+    public int getLastNumber () {
+    	//TODO: Devolver el último número mostrado por pantalla
+    	return 0;
+    	
+    }
 	public void escribirLista(List<Integer> list) {
 		for(int i=0; i< list.size(); i++)
 		{
