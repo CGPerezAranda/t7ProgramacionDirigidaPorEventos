@@ -27,10 +27,14 @@ public class Controlador implements ActionListener, PropertyChangeListener  {
 			ws = new Worker_sync(Integer.parseInt(panel.tiempoField.getText()), panel, w);			
 			w.execute();
 			ws.execute();
+			panel.boton.setText("Cancelar");
+			panel.boton.setActionCommand(panel.CANCEL);
 			
 		}else if(e.getActionCommand().equals(panel.CANCEL) && w!=null) {
 				w.cancel(true);
 				ws.cancel(true);
+				panel.boton.setText("Cuenta atras!");
+				panel.boton.setActionCommand(panel.START);
 		}
 	}
 	public void propertyChange(PropertyChangeEvent evt) {

@@ -22,7 +22,7 @@ public class Worker extends SwingWorker<Void, Integer> {
 		for(int i =numero; i>=0;i--)
 		{
 			publish(i);
-			this.setProgress((numero-i)*100/numero);
+			this.setProgress((numero-i)*100/numero); //para la implementaciónn futura de una barra de progreso
 			Thread.sleep(1000);
 		}
 		

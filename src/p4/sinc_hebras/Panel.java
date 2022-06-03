@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class Panel extends JPanel {
 
 	private JLabel etiqueta1;
-    private JButton boton, cancel;
+    protected JButton boton;
     protected JTextArea area, area2;
     protected JScrollPane scroll, scroll2;
     protected JTextField tiempoField;
@@ -31,7 +31,7 @@ public class Panel extends JPanel {
     	 tiempoField = new JTextField(5);
          etiqueta1 = new JLabel();
          boton = new JButton();
-         cancel = new JButton();
+
          area = new JTextArea(20,40);
          scroll = new JScrollPane(area);
          
@@ -41,7 +41,7 @@ public class Panel extends JPanel {
 
          etiqueta1.setText("Introduzca el valor de inicio");
          boton.setText("Cuenta atrás!");         
-         cancel.setText("Cancelar");
+
          
          this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));         
          JPanel sup= new JPanel();
@@ -50,7 +50,7 @@ public class Panel extends JPanel {
          this.add(sup);
                   
          this.add(boton);
-         this.add(cancel);
+
          this.add(scroll); 
          this.add(scroll2);
          //-- Barra de progreso
@@ -63,8 +63,7 @@ public class Panel extends JPanel {
     {
     	boton.addActionListener(ctr);
     	boton.setActionCommand(START);
-    	cancel.addActionListener(ctr);
-    	cancel.setActionCommand(CANCEL);
+
     }
 
 	public void escribirLista(List<Integer> list) {

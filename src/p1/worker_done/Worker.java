@@ -20,7 +20,7 @@ public class Worker extends SwingWorker<List<Integer>, Void> {
 	
 	@Override
 	protected List<Integer> doInBackground() throws InterruptedException {
-		System.out.println("worker doInBackground() - isEventDispatchThread? "+ SwingUtilities.isEventDispatchThread());
+		//System.out.println("worker doInBackground() - isEventDispatchThread? "+ SwingUtilities.isEventDispatchThread());
 		List<Integer> lista = new ArrayList<Integer>();
 		for(int i =numero; i>=0;i--)	{
 			lista.add(i);
@@ -29,8 +29,7 @@ public class Worker extends SwingWorker<List<Integer>, Void> {
 		return lista;
 	}
 
-	protected void done()
-	{
+	protected void done(){
 		try {
 			System.out.println("worker done() - isEventDispatchThread? "+ SwingUtilities.isEventDispatchThread());
 			panel.escribirLista(get()); //get() - espera a que termine doInBackground  y devuelve los valores generados

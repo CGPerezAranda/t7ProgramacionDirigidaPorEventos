@@ -17,7 +17,7 @@ public class Controlador implements ActionListener {
 		if(e.getActionCommand().equals(panel.START)){
 			
 			System.out.println("actionPerformed - isEventDispatchThread? "+ SwingUtilities.isEventDispatchThread());			
-			panel.area.append("Empezamos cuenta atrás!");
+			panel.area.append("Empezamos cuenta atrás!\n");
 			//Creamos un trabajador que haga la tarea de procesado
 			w =new Worker(Integer.parseInt(panel.tiempoField.getText()), panel);			
 			w.execute();//Lanzamos la ejecucion de la hebra trabajadora
