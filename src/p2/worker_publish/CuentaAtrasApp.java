@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 
 import javax.swing.SwingUtilities;
 
+import practica9.AmigosPublish.Controlador;
+
 public class CuentaAtrasApp {
    
     public static void main(String args[]) {
